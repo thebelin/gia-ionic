@@ -1,0 +1,22 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+
+    <div class="list card">
+
+      <div class="item item-divider">GIA-IONIC Data</div>
+      <div class="item item-body">
+        
+        <div data-ng-repeat="(sheet, data) in allData() track by $index" class="list card">
+          <div class="item item-divider" data-ng-bind="sheet"></div>
+
+          <div class="item item-body" data-ng-repeat="item in data track by $index">
+            <div data-ng-repeat="(label, val) in item track by $index" class="info {{label}}">
+              <span class="label {{label}}">{{label}}</span>
+              <span class="value {{label}}">{{val}}</span>
+            </div>
+          </div>
+
+        </div>
+
+  </ion-content>
+</ion-view>

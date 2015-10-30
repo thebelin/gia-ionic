@@ -1,0 +1,18 @@
+/* remove display of a couple info values */
+.info._id, .info.State {
+  display: none;
+}
+
+.info.ZipCode {
+  font-weight:bold;
+}
+
+.info {
+  width: 20em;
+  float:left;
+}
+.addInstance {
+  position: absolute;
+  right: 10px;
+  bottom: 55px;
+}

@@ -1,0 +1,38 @@
+<ion-view view-title="Instance Manager">
+  <ion-content class="padding">
+
+    <ion-list>
+      <div class="item" data-ng-repeat="instance in giaInstances track by $index">
+        <span data-ng-bind="instance.name" alt="instance.docId"></span>
+        <a data-ng-click="setCurrentInstance($index)" data-ng-class="{'ion-ios-circle-filled':$index==getCurrentInstance(),'ion-ios-circle-outline':$index!==getCurrentInstance()}"></a>
+      </div>
+    </ion-list>
+
+    <div data-ng-show="showNewInstanceForm()" class="list card">
+      <div class="item item-divider">
+        <h1 class="title">Add Instance</h1>
+      </div>
+      <label class="item item-input">
+        <input type="text" placeholder="Name" data-ng-model="newInstance.name">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Document Id (56 chars)" data-ng-model="newInstance.docId">
+      </label>
+      <label class="item item-input" data-ng-model="newInstance.pollInterval">
+        <input type="number" placeholder="Poll Interval (ms)" default="1000000">
+      </label>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <div class="tab-item button ion-ios-minus button-negative icon-left button-clear" data-ng-click="toggleNewInstanceForm()" >
+          Cancel
+        </div>
+        <div class="tab-item button ion-ios-plus button-positive icon-left button-clear" data-ng-click="addInstanceFromForm()">Save</div>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <div class="addInstance">
+    <a class="h1 ion-ios-plus button-positive" data-ng-click="toggleNewInstanceForm()"></a>
+  </div>
+
+</ion-view>
